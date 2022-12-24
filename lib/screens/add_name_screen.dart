@@ -24,10 +24,11 @@ class _AddNameScreenState extends State<AddNameScreen> {
             ),
           ),
           ElevatedButton(
-            onPressed: () {
+            onPressed: () async {
               if (controller.text.isEmpty) return;
-              insertName(name: controller.text);
-              Navigator.of(context).pop();
+              await insertName(name: controller.text).then(
+                (value) => Navigator.of(context).pop(),
+              );
             },
             child: const Text("Guardar"),
           ),
