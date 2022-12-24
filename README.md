@@ -1,16 +1,56 @@
-# flutter_firebase_crud
+<br />
+<div align="center">
+  <h1 align="center">Flutter Firebase CRUD</h1>
 
-A new Flutter project.
+  <p align="center">
+    An awesome README template to jumpstart your projects!
+    <br />
+    <a href="https://kleysonklaus.com"><strong>Kleyson Klaus</strong></a>
+    <br />
+    <br />
+<!--     <a href="">View Demo</a> -->
+<!--     · -->
+<!--     <a href="">Report Bug</a> -->
+<!--     · -->
+<!--     <a href="">Request Feature</a> -->
+  </p>
+</div>
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+### Clone Repo
+1. Clone the repo
+   ```sh
+   git clone https://github.com/kleysonklaus/flutter_firebase_crud
+   ```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<!-- CONTRIBUTING -->
+## Contributing
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- LICENSE -->
+## License
+
+Public
+
+<!-- CONTACT -->
+## Contact
+
+Kleyson - [@kleysonklaus](https://twitter.com/kleysonklaus)
+
+Project Link: [https://kleysonklaus.com](https://kleysonklaus.com)
+
