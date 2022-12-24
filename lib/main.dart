@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 // Importaciones de Firebase
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_firebase_crud/screens/add_name_screen.dart';
+import 'package:flutter_firebase_crud/screens/home_screen.dart';
 import 'firebase_options.dart';
-// servicios
-import 'services/firebase_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,47 +22,11 @@ class MyApp extends StatelessWidget {
       title: 'Material App',
       theme: ThemeData(useMaterial3: true),
       debugShowCheckedModeBanner: false,
-      home: const Home(),
-    );
-  }
-}
-
-class Home extends StatefulWidget {
-  const Home({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Material App Bar'),
-      ),
-      body: FutureBuilder(
-        future: getPeople(),
-        builder: ((context, AsyncSnapshot<List<dynamic>> snapshot) {
-          if (snapshot.hasData == false) {
-            return const Center(child: CircularProgressIndicator());
-          }
-
-          final data = snapshot.data!;
-
-          return ListView(
-            children: data.map((item) {
-              return Text("${item}");
-            }).toList(),
-          );
-        }),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.add),
-      ),
+      initialRoute: '/',
+      routes: {
+        '/': ((context) => const Home()),
+        '/add': (context) => const AddNameScreen(),
+      },
     );
   }
 }

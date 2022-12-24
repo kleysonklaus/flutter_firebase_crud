@@ -15,3 +15,9 @@ Future<List> getPeople() async {
 
   return people;
 }
+
+Future insertName({required String name}) async {
+  await db.collection("people").add({
+    "name": name,
+  });
+}
