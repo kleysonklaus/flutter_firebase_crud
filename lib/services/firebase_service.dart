@@ -21,3 +21,9 @@ Future<void> insertName({required String name}) async {
     "name": name,
   });
 }
+
+Future<void> updateName({required String uid, required String newName}) async {
+  await db.collection("people").doc(uid).set({
+    "name": newName,
+  });
+}
