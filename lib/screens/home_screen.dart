@@ -30,19 +30,59 @@ class _HomeState extends State<Home> {
 
           return ListView(
             children: data.map((item) {
-              return ListTile(
-                title: Text("${item['name']}"),
-                onTap: () async {
-                  await Navigator.pushNamed(
-                    context,
-                    '/edit',
-                    arguments: {
-                      "name": item['name'],
-                      "uid": item['uid'],
-                    },
-                  );
-                  setState(() {});
+              return Dismissible(
+                background: Container(
+                  color: Colors.red,
+                  child: const Icon(Icons.delete),
+                ),
+                key: Key(item['uid']),
+                direction: DismissDirection.endToStart,
+                onDismissed: (direction) async {
+                  // if (direction == DismissDirection.endToStart) {
+                  await deleteName(uid: item['uid']);
+                  data.remove(item);
+                  // setState(() {});
+                  // }
                 },
+                confirmDismiss: (direction) async {
+                  if (direction == DismissDirection.endToStart) {
+                    bool? result = false;
+                    result = await showDialog(
+                        context: context,
+                        builder: (_) {
+                          return AlertDialog(
+                            title: Text(
+                                "Estas seguro de querer eliminar ${item['name']}?"),
+                            actions: [
+                              TextButton(
+                                  onPressed: () =>
+                                      Navigator.of(context).pop(true),
+                                  child: const Text("SI")),
+                              TextButton(
+                                  onPressed: () =>
+                                      Navigator.of(context).pop(false),
+                                  child: const Text("NO")),
+                            ],
+                          );
+                        });
+
+                    return result;
+                  }
+                },
+                child: ListTile(
+                  title: Text("${item['name']}"),
+                  onTap: () async {
+                    await Navigator.pushNamed(
+                      context,
+                      '/edit',
+                      arguments: {
+                        "name": item['name'],
+                        "uid": item['uid'],
+                      },
+                    );
+                    setState(() {});
+                  },
+                ),
               );
             }).toList(),
           );
