@@ -36,7 +36,7 @@ class _HomeState extends State<Home> {
                   Navigator.pushNamed(
                     context,
                     '/edit',
-                    arguments: item,
+                    arguments: item['name'],
                   );
                 },
               );
