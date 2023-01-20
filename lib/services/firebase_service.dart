@@ -33,3 +33,7 @@ Future<void> updateName({required String uid, required String newName}) async {
     "name": newName,
   });
 }
+
+Future<void> deleteName({required String uid}) async {
+  await db.collection("people").doc(uid).delete();
+}
