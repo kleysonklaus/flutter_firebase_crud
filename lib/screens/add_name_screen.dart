@@ -11,6 +11,13 @@ class AddNameScreen extends StatefulWidget {
 class _AddNameScreenState extends State<AddNameScreen> {
   final controller = TextEditingController();
 
+  Future<void> sendCreated(String text) async {
+    if (text.isEmpty) return;
+    await insertName(name: controller.text).then(
+      (value) => Navigator.of(context).pop(),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,18 +25,14 @@ class _AddNameScreenState extends State<AddNameScreen> {
       body: Column(
         children: [
           TextField(
+            onSubmitted: sendCreated,
             controller: controller,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               hintText: 'Ingrese nuevo nombre',
             ),
           ),
           ElevatedButton(
-            onPressed: () async {
-              if (controller.text.isEmpty) return;
-              await insertName(name: controller.text).then(
-                (value) => Navigator.of(context).pop(),
-              );
-            },
+            onPressed: () => sendCreated(controller.text),
             child: const Text("Guardar"),
           ),
         ],
