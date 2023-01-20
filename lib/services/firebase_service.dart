@@ -10,7 +10,13 @@ Future<List> getPeople() async {
   QuerySnapshot queryPeople = await collectionReferencePeople.get();
 
   for (final documento in queryPeople.docs) {
-    people.add(documento.data());
+    final data = documento.data() as Map<String, dynamic>;
+    people.add(
+      {
+        "name": data['name'],
+        "uid": documento.id,
+      },
+    );
   }
 
   return people;
