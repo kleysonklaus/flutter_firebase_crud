@@ -32,14 +32,16 @@ class _HomeState extends State<Home> {
             children: data.map((item) {
               return ListTile(
                 title: Text("${item['name']}"),
-                onTap: () {
-                  Navigator.pushNamed(
+                onTap: () async {
+                  await Navigator.pushNamed(
                     context,
                     '/edit',
                     arguments: {
                       "name": item['name'],
+                      "uid": item['uid'],
                     },
                   );
+                  setState(() {});
                 },
               );
             }).toList(),
