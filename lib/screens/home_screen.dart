@@ -30,7 +30,16 @@ class _HomeState extends State<Home> {
 
           return ListView(
             children: data.map((item) {
-              return Text("${item}");
+              return ListTile(
+                title: Text("${item['name']}"),
+                onTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    '/edit',
+                    arguments: item,
+                  );
+                },
+              );
             }).toList(),
           );
         }),
